@@ -1,4 +1,5 @@
-# Hospital_Totem
+# Hospital_Totem   
+## Running   
 ![Preview-Screens](https://github.com/devWeslei/Hospital_Totem/blob/main/assets/example.png)   
 ![Preview-Screens](https://github.com/devWeslei/Hospital_Totem/blob/main/assets/example%202.png)
 
