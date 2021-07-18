@@ -14,16 +14,16 @@ struct elemento{
 };
 
 struct elemento questoes[10] = {
-	{ .pergunta = "Tem Febre? (s) para SIM ou (n) para N√O.\n", .pontuacao = 5},
-	{ .pergunta = "Tem dor de cabeÁa? (s) para SIM ou (n) para N√O.\n", .pontuacao = 1},
-	{ .pergunta = "Tem secreÁ„o nasal ou espirros? (s) para SIM ou (n) para N√O.\n", .pontuacao = 1},
-	{ .pergunta = "Tem dor dor/irritaÁ„o na garganta? (s) para SIM ou (n) para N√O.\n", .pontuacao = 1},
-	{ .pergunta = "Tem tosse seca? (s) para SIM ou (n) para N√O.\n", .pontuacao = 3},
-	{ .pergunta = "Tem dificuldade respiratÛria? (s) para SIM ou (n) para N√O.\n", .pontuacao = 10},
-	{ .pergunta = "Tem tosse dores no corpo? (s) para SIM ou (n) para N√O.\n", .pontuacao = 1},
-	{ .pergunta = "Tem diarrÈia? (s) para SIM ou (n) para N√O.\n", .pontuacao = 1},
-	{ .pergunta = "Esteve em contato, nos ˙ltimos 14 dias, com um caso diagnosticado com COVID-19? (s) para SIM ou (n) para N√O.\n", .pontuacao = 10},
-	{ .pergunta = "Esteve em locais com grande aglomeraÁ„o? (s) para SIM ou (n) para N√O.\n", .pontuacao = 3},
+	{ .pergunta = "Tem Febre? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 5},
+	{ .pergunta = "Tem dor de cabe√ßa? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 1},
+	{ .pergunta = "Tem secre√ß√£o nasal ou espirros? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 1},
+	{ .pergunta = "Tem dor dor/irrita√ß√£o na garganta? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 1},
+	{ .pergunta = "Tem tosse seca? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 3},
+	{ .pergunta = "Tem dificuldade respirat√≥ria? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 10},
+	{ .pergunta = "Tem tosse dores no corpo? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 1},
+	{ .pergunta = "Tem diarr√©ia? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 1},
+	{ .pergunta = "Esteve em contato, nos √∫ltimos 14 dias, com um caso diagnosticado com COVID-19? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 10},
+	{ .pergunta = "Esteve em locais com grande aglomera√ß√£o? (s) para SIM ou (n) para N√ÉO.\n", .pontuacao = 3},
 	
 };
 
@@ -60,6 +60,7 @@ int main(){
 	
 	system("cls");
 	
+	printf("\ninforme quais sintomas esta sentindo...\n");       
 	for(i = 0; i < 10; i ++){
 		printf("%s", questoes[i].pergunta);
 		scanf("%c",&res);
@@ -71,7 +72,7 @@ int main(){
 			soma = soma + 0;
 		else{
 			while((res != 's' && res != 'n') && (res != 'S' && res != 'N')){
-				printf("por favor, responda apenas com (s) para SIM ou (n) para N√O.\n");
+				printf("por favor, responda apenas com (s) para SIM ou (n) para N√ÉO.\n");
 				printf("%s", questoes[i].pergunta);
 				scanf("%c",&res);
 				flush_in();
@@ -87,11 +88,11 @@ int main(){
 	printf("\npontuacao: %i \n", soma);
 	
 	if(soma <= 9)  //direcionando o paciente de acordo com o risco.
-		printf("\nseu risco para COVID-19 È BAIXO, dirija-se ao setor Verde! obrigado.\n\n");
+		printf("\nseu risco para COVID-19 √© BAIXO, dirija-se ao setor Verde! obrigado.\n\n");
 	else if(soma >= 10 & soma <= 19)
-		printf("\nseu risco para COVID-19 È M…DIO, dirija-se ao setor Amarelo! obrigado.\n\n");
+		printf("\nseu risco para COVID-19 √© M√âDIO, dirija-se ao setor Amarelo! obrigado.\n\n");
 	else
-		printf("\nseu risco para COVID-19 È ALTO, dirija-se ao setor Vermelho! obrigado.\n\n");
+		printf("\nseu risco para COVID-19 √© ALTO, dirija-se ao setor Vermelho! obrigado.\n\n");
 	
 	file = fopen("pacientes.txt", "a");
 	fprintf(file,"---------------------------------------------------------\n");
@@ -99,9 +100,10 @@ int main(){
 	fprintf(file,"Nome: %s", nome);
 	fprintf(file,"sexo: %s \n", sexo);
 	fprintf(file,"idade: %d \n", idade);
-	fprintf(file,"PontuaÁ„o: %d \n",soma);
+	fprintf(file,"Pontua√ß√£o: %d \n",soma);
 	fclose(file);
 	
+	system("pause");
 	return 0;
 }
 
